@@ -1,0 +1,17 @@
+<kendo-toolbar style="background-color: lightgrey; padding: 1px">
+  <kendo-toolbar-dropdownbutton
+    [text]="'Categories'"
+    [data]="dropdownButtonData">
+  </kendo-toolbar-dropdownbutton>
+  <kendo-toolbar-buttongroup [selection]="'single'">
+    <kendo-toolbar-button [text]="'Log in'" (click)="goToLogin()"></kendo-toolbar-button>
+    <kendo-toolbar-button [text]="'About us'"></kendo-toolbar-button>
+    <kendo-toolbar-button [text]="'Help'"></kendo-toolbar-button>
+    <kendo-toolbar-button [text]="'EN'"></kendo-toolbar-button>
+  </kendo-toolbar-buttongroup>
+</kendo-toolbar>
+
+<div style="background-color: black; padding:13px; justify-content:center; display: flex; align-items: center;">
+  <h2 style="color: white; font-family: 'Times New Roman'; margin-right: 10px;">We teach you how to do anything</h2>
+  <input kendoTextBox placeholder="How to" style="width: 350px;"/>
+</div>
