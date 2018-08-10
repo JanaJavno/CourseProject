@@ -9,6 +9,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {CollapseModule} from 'ngx-bootstrap/collapse';
 import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
     CarouselModule.forRoot(),
     ScrollViewModule,
     ToolBarModule,
-    InputsModule
+    InputsModule,
+    DialogsModule
   ],
   exports: [
     BsDropdownModule,
@@ -30,7 +32,8 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
     CarouselModule,
     ScrollViewModule,
     ToolBarModule,
-    InputsModule
+    InputsModule,
+    DialogsModule
   ]
 })
 export class AppBootstrapModule {

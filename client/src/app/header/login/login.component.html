@@ -1,0 +1,22 @@
+<kendo-dialog title="Log In" *ngIf="state"   (close)="close()" [minWidth]="250" [width]="450">
+  <form class="k-form">
+    <fieldset>
+      <legend>Credentials</legend>
+      <label class="k-form-field">
+        <span>Username</span>
+        <input class="k-textbox" placeholder="Your username"/>
+      </label>
+      <label class="k-form-field">
+        <span>Password</span>
+        <input type="password" class="k-textbox" placeholder="Your password"/>
+      </label>
+    </fieldset>
+
+    <button type="button" class="k-button k-primary">Registration</button>
+
+    <div class="text-right">
+      <button type="button" class="k-button">Cancel</button>
+      <button type="button" class="k-button k-primary">Submit</button>
+    </div>
+  </form>
+</kendo-dialog>

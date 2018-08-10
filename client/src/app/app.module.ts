@@ -12,6 +12,9 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { SortableModule } from '@progress/kendo-angular-sortable';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { LoginComponent } from './header/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { SortableModule } from '@progress/kendo-angular-sortable';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { SortableModule } from '@progress/kendo-angular-sortable';
     DropDownsModule,
     ToolBarModule,
     InputsModule,
-    SortableModule
+    SortableModule,
+    DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
