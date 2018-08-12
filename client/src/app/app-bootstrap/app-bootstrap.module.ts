@@ -1,39 +1,33 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CarouselModule} from 'ngx-bootstrap';
-import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
-import {TooltipModule} from 'ngx-bootstrap/tooltip';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {CollapseModule} from 'ngx-bootstrap/collapse';
+import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 import { ToolBarModule } from '@progress/kendo-angular-toolbar';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import {ButtonsModule} from '@progress/kendo-angular-buttons';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { SortableModule } from '@progress/kendo-angular-sortable';
 
 @NgModule({
   imports: [
     CommonModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    CollapseModule.forRoot(),
-    CarouselModule.forRoot(),
     ScrollViewModule,
     ToolBarModule,
+    DialogsModule,
+    ButtonsModule,
+    DropDownsModule,
     InputsModule,
-    DialogsModule
+    SortableModule
   ],
   exports: [
-    BsDropdownModule,
-    TooltipModule,
-    ModalModule,
-    CollapseModule,
-    CarouselModule,
     ScrollViewModule,
     ToolBarModule,
     InputsModule,
-    DialogsModule
+    DialogsModule,
+    DropDownsModule,
+    ButtonsModule,
+    SortableModule
   ]
 })
 export class AppBootstrapModule {

@@ -8,13 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { ToolBarModule } from '@progress/kendo-angular-toolbar';
-import { InputsModule } from '@progress/kendo-angular-inputs';
-import { SortableModule } from '@progress/kendo-angular-sortable';
-import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { LoginComponent } from './header/login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import {ManualService} from './manual.service';
+import {RouterModule} from '@angular/router';
 
+const routes = [
+  {path: 'home', component: MainComponent},
+  {path: 'registration', component: RegistrationComponent}
+];
 
 @NgModule({
   declarations: [
@@ -23,19 +25,16 @@ import { LoginComponent } from './header/login/login.component';
     FooterComponent,
     MainComponent,
     CarouselComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppBootstrapModule,
     BrowserAnimationsModule,
-    DropDownsModule,
-    ToolBarModule,
-    InputsModule,
-    SortableModule,
-    DialogsModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ManualService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

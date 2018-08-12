@@ -12,7 +12,8 @@
 </kendo-toolbar>
 
 <div style="background-color: black; padding:13px; justify-content:center; display: flex; align-items: center;">
-  <h2 style="color: white; font-family: 'Times New Roman'; margin-right: 10px;">We teach you how to do anything</h2>
+  <button kendoButton routerLink="home" [look]="'flat'" style="color: white; margin-right: 100px; font-size: 45px; font-family: 'Baskerville Old Face'">iManuals</button>
+  <h2 style="color: white; font-family: 'Baskerville Old Face'; margin-right: 10px;">We teach you how to do anything</h2>
   <input kendoTextBox placeholder="How to" style="width: 350px;"/>
 </div>
-<app-login [state] = "state" (closeGlobal)="state = false"></app-login>
+<app-login [state]="state" (closeGlobal)="state = false"></app-login>

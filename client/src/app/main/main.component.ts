@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ManualService} from '../manual.service';
 
 @Component({
   selector: 'app-main',
@@ -14,18 +15,12 @@ export class MainComponent implements OnInit {
   ];
   public width = '1500px';
   public height = '400px';
-
-  public blockItems: any[] = [
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' },
-    { title: 'How to slice a pineapple', url: '..//assets/pineapple.jpg' }];
-  constructor() { }
+  public manuals;
+  constructor(private _manualService: ManualService) {
+  }
 
   ngOnInit() {
+    this.manuals = this._manualService.getAll();
   }
 
 }
