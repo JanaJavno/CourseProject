@@ -12,10 +12,14 @@ import { LoginComponent } from './header/login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {ManualService} from './manual.service';
 import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './auth.service';
 
 const routes = [
   {path: 'home', component: MainComponent},
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 @NgModule({
@@ -32,9 +36,12 @@ const routes = [
     BrowserModule,
     AppBootstrapModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ManualService],
+  providers: [ManualService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

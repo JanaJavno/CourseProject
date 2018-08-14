@@ -1,3 +1,32 @@
-<p>
-  registration works!
-</p>
+<div class="row example-wrapper" style="justify-content:center; display: flex; align-items: center;margin: 15px">
+  <div class="col-xs-12 col-sm-6 example-col">
+    <div class="card">
+      <div class="card-block">
+        <form [formGroup]="formControl" (ngSubmit)="addUser(formControl.value)" class="k-form">
+          <fieldset>
+            <legend>User Details</legend>
+
+            <label class="k-form-field">
+              <span>Email <span class="k-required">*</span></span>
+              <input formControlName="email" type="email" class="k-textbox" placeholder="your@email.com" required/>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Credentials</legend>
+            <label class="k-form-field">
+              <span>Username <span class="k-required">*</span></span>
+              <input formControlName="username" class="k-textbox" placeholder="Your username" required/>
+            </label>
+            <label class="k-form-field">
+              <span>Password <span class="k-required">*</span></span>
+              <input formControlName="password" type="password" class="k-textbox" placeholder="Your password" required/>
+            </label>
+          </fieldset>
+
+            <input type="submit" value="Submit" [disabled]="!formControl.valid" class="k-button k-primary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
