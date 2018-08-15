@@ -9,6 +9,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   public addNewUser(user) {
+    console.log(JSON.stringify(user));
     return this.http.post('/api/registration', JSON.stringify(user));
   }
 }

@@ -15,18 +15,10 @@ export class LoginComponent implements OnInit {
 
   public close() {
     this.closeGlobal.emit(false);
-    console.log(`Dialog result: ${this.state}`);
     this.state = false;
-    console.log(`Dialog result: ${this.state}`);
   }
 
   public open() {
-    console.log(`Dialog result: ${this.state}`);
     this.state = true;
-  }
-  public temp() {
-    console.log(this.state);
-    this.state = true;
-    console.log(this.state);
   }
 }
