@@ -9,15 +9,12 @@ import {AuthService} from '../auth.service';
 })
 export class RegistrationComponent implements OnInit {
   formControl: FormGroup;
-  email = '';
-  username = '';
-  password = '';
   constructor(private fb: FormBuilder, private authService: AuthService
   ) {
     this.formControl = this.fb.group({
-      'email': ['', Validators.required],
+      'email': ['', Validators.compose([Validators.required, Validators.email])],
       'username': ['', Validators.required],
-      'password': ['', Validators.required]
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(5)])]
     });
   }
 

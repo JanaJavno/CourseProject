@@ -10,6 +10,7 @@ export class AuthService {
 
   public addNewUser(user) {
     console.log(JSON.stringify(user));
-    return this.http.post('/api/registration', JSON.stringify(user));
+    const headers = new HttpHeaders({'Content-Type': 'application/json; charset = utf-8'});
+    return this.http.post<any>('/api/registration', JSON.stringify(user), { headers: headers });
   }
 }
