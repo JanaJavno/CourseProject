@@ -1,4 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,13 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 export class LoginComponent implements OnInit {
   @Input() state;
   @Output() closeGlobal =  new EventEmitter<boolean>();
-  constructor() { }
+  loginFormControl: FormGroup;
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.loginFormControl = this.fb.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
   }
@@ -20,5 +28,8 @@ export class LoginComponent implements OnInit {
 
   public open() {
     this.state = true;
+  }
+  loginUser(user) {
+    this.authService.login(user).then(response => console.log(response));
   }
 }

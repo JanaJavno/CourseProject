@@ -22,9 +22,7 @@ export class RegistrationComponent implements OnInit {
     /*this.formControl.valueChanges.subscribe((value) => console.log(value));*/
   }
   addUser(user) {
-    this.authService.addNewUser(user)
-      .subscribe(currentUser0 => this.authService.currentUser = currentUser0);
-    console.log('currentUser' + this.authService.currentUser);
+    this.authService.addNewUser(user).then(response => console.log(response));
   }
 
 }

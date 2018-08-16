@@ -1,22 +1,17 @@
 <kendo-dialog title="Log In" *ngIf="state"   (close)="close()" [minWidth]="250" [width]="450">
-  <form class="k-form">
+  <form [formGroup]="loginFormControl" (ngSubmit)="loginUser(loginFormControl.value)" class="k-form">
     <fieldset>
       <legend>Credentials</legend>
       <label class="k-form-field">
         <span>Username</span>
-        <input class="k-textbox" placeholder="Your username"/>
+        <input formControlName="username" type="text" class="k-textbox" placeholder="Your username" required/>
       </label>
       <label class="k-form-field">
         <span>Password</span>
-        <input type="password" class="k-textbox" placeholder="Your password"/>
+        <input formControlName="password" type="password" class="k-textbox" placeholder="Your password" required/>
       </label>
     </fieldset>
-
-    <button type="button" class="k-button k-primary" routerLink="registration" (click)="close()">Registration</button>
-
-    <div class="text-right">
-      <button type="button" class="k-button">Cancel</button>
-      <button type="button" class="k-button k-primary">Submit</button>
-    </div>
+    <input type="submit" class="k-button k-primary" value="Submit" style="float: right">
   </form>
+  <button type="button" class="k-button k-primary" routerLink="registration" (click)="close()">Registration</button>
 </kendo-dialog>
