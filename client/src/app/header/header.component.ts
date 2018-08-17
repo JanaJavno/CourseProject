@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit {
     }
   ];
   public state = false;
+  isAuthenticated = this.authService.isAuthenticated();
   public dropdownButtonData: Array<any> = [
     {
       text: 'Option 1'
@@ -30,14 +32,18 @@ export class HeaderComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit() {
   }
 
-  onLogClick() {
+  onLogInClick() {
     this.state = true;
-    console.log(`Dialog result: ${this.state}`);
+  }
+
+  onLogOutClick() {
+    this.authService.logout();
+    location.reload();
   }
 }

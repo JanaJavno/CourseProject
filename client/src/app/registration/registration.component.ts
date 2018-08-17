@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +10,7 @@ import {AuthService} from '../auth.service';
 })
 export class RegistrationComponent implements OnInit {
   formControl: FormGroup;
-  constructor(private fb: FormBuilder, private authService: AuthService
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router
   ) {
     this.formControl = this.fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.email])],
@@ -22,7 +23,12 @@ export class RegistrationComponent implements OnInit {
     /*this.formControl.valueChanges.subscribe((value) => console.log(value));*/
   }
   addUser(user) {
-    this.authService.addNewUser(user).then(response => console.log(response));
+    this.authService.addNewUser(user).
+    then(
+      values => {
+        alert('Thanks for registration');
+        this.router.navigate(['home']);
+        }, valuef => alert('User with this name has already existed'));
   }
 
 }

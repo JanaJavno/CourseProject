@@ -29,7 +29,14 @@ export class LoginComponent implements OnInit {
   public open() {
     this.state = true;
   }
+
   loginUser(user) {
-    this.authService.login(user).then(response => console.log(response));
+    this.authService.login(user).
+    then(response => {
+        localStorage.setItem('currentUser', response.token);
+        this.close();
+        location.reload();
+      },
+        responsef =>  alert('User is not found'));
   }
 }

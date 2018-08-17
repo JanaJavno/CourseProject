@@ -4,7 +4,8 @@
     [data]="dropdownButtonData">
   </kendo-toolbar-dropdownbutton>
   <kendo-toolbar-buttongroup [selection]="'single'">
-    <kendo-toolbar-button [text]="'Log in'" (click)="onLogClick()"></kendo-toolbar-button>
+    <kendo-toolbar-button *ngIf="!isAuthenticated" [text]="'Log in'" (click)="onLogInClick()"></kendo-toolbar-button>
+    <kendo-toolbar-button *ngIf="isAuthenticated" [text]="'Log out'" (click)="onLogOutClick()"></kendo-toolbar-button>
     <kendo-toolbar-button [text]="'About us'"></kendo-toolbar-button>
     <kendo-toolbar-button [text]="'Help'"></kendo-toolbar-button>
     <kendo-toolbar-button [text]="'EN'"></kendo-toolbar-button>
