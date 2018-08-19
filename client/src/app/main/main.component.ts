@@ -21,8 +21,8 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*this._manualService.getAll().subscribe(manuals => this.manuals = manuals);*/
-    this.manuals = this._manualService.getAll();
+    this._manualService.getAll().subscribe(manuals => this.manuals = manuals);
+    /*this.manuals = this._manualService.getAll();*/
     /*this._manualService.getTest().subscribe(temp => console.log(temp));*/
   }
 
