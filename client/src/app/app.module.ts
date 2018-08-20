@@ -15,10 +15,12 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './auth.service';
+import { CategoryComponent } from './category/category.component';
 
 const routes = [
   {path: 'home', component: MainComponent},
   {path: 'registration', component: RegistrationComponent},
+  {path: 'category/:type', component: CategoryComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
@@ -30,7 +32,8 @@ const routes = [
     MainComponent,
     CarouselComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

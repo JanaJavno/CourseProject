@@ -13,17 +13,15 @@
   </kendo-scrollview>
 </div>
 
-<div class="container-fluid">
-  <kendo-sortable
-    [navigatable]="true"
-    [animation] = "true"
-    [data]="manuals"
-    class="row"
-    itemClass="item col-xs-7 col-sm-4"
-    activeItemClass="item col-xs-7 col-sm-4 active">
-    <ng-template let-item="item">
-      <h2>{{item.title}}</h2>
-      <img src='{{item.url}}'>
-    </ng-template>
-  </kendo-sortable>
+<h2 style="text-align: center">Categories</h2>
+<div class="col-sm-12 col-md-4 example-col" style="justify-content:center; display: flex; align-items: center;">
+  <kendo-buttongroup style="margin-left: 1000px; margin-bottom: 20px">
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('ART')">Art</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('SOCIAL_LIFE')">Social life</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('TECHIQUE')">Technique</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('COOKING')">Cooking</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('LEARNING')">Learning</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('SPORT')">Sport</button>
+    <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('HEALTH')">Health</button>
+  </kendo-buttongroup>
 </div>

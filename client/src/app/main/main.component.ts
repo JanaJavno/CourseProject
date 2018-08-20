@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ManualService} from '../manual.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -15,15 +16,14 @@ export class MainComponent implements OnInit {
   ];
   public width = '1500px';
   public height = '400px';
-  public manuals;
   private temp;
-  constructor(private _manualService: ManualService) {
+  constructor(private _manualService: ManualService, private router: Router) {
   }
 
   ngOnInit() {
-    this._manualService.getAll().subscribe(manuals => this.manuals = manuals);
-    /*this.manuals = this._manualService.getAll();*/
-    /*this._manualService.getTest().subscribe(temp => console.log(temp));*/
   }
-
+  goToCategory(type) {
+    this.router.navigate(['category', type]);
+    /*this._manualService.getCategory(type).subscribe(manuals => this.manuals = manuals);*/
+  }
 }

@@ -10,10 +10,13 @@ export class ManualService {
   }
 
   public getAll() {
-    return this.http.get('/api/getManuals');
+    return this.http.get('/api/manuals/');
   }
 
   public getTest() {
     return this.http.get('/api/greeting');
+  }
+  public getCategory(type: string) {
+    return this.http.get('/api/manuals/category/' + type);
   }
 }
