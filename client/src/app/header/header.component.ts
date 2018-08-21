@@ -20,17 +20,6 @@ export class HeaderComponent implements OnInit {
   ];
   public state = false;
   isAuthenticated = this.authService.isAuthenticated();
-  public dropdownButtonData: Array<any> = [
-    {
-      text: 'Option 1'
-    },
-    {
-      text: 'Option 2',
-    },
-    {
-      text: 'Option 3',
-    }
-  ];
 
   constructor(private authService: AuthService) {
   }

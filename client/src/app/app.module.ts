@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,11 +15,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './auth.service';
 import { CategoryComponent } from './category/category.component';
+import { ManualComponent } from './manual/manual.component';
+import {NgxPageScrollModule} from 'ngx-page-scroll';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ManualContainerComponent } from './manual-container/manual-container.component';
 
 const routes = [
   {path: 'home', component: MainComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'category/:type', component: CategoryComponent},
+  {path: 'manuals/:manualId/:category', component: ManualComponent},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
@@ -33,16 +37,19 @@ const routes = [
     CarouselComponent,
     LoginComponent,
     RegistrationComponent,
-    CategoryComponent
+    CategoryComponent,
+    ManualComponent,
+    ManualContainerComponent
   ],
   imports: [
     BrowserModule,
     AppBootstrapModule,
+    NgxPageScrollModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ManualService, AuthService],
   bootstrap: [AppComponent]

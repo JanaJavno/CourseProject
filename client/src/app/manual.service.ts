@@ -16,7 +16,12 @@ export class ManualService {
   public getTest() {
     return this.http.get('/api/greeting');
   }
+
   public getCategory(type: string) {
     return this.http.get('/api/manuals/category/' + type);
+  }
+
+  public getManualById(manualId: string) {
+    return this.http.get('api/manuals/' + manualId);
   }
 }

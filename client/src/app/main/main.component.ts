@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
+  public manuals;
   public items: any[] = [
     { title: 'Best of manuals', url: '..//assets/Henningsvaer-(Norway).jpg' },
     { title: 'Best of manuals', url: '..//assets/Ship-between-cliffs.jpg' },
@@ -16,14 +16,15 @@ export class MainComponent implements OnInit {
   ];
   public width = '1500px';
   public height = '400px';
-  private temp;
   constructor(private _manualService: ManualService, private router: Router) {
+    this._manualService.getAll()
+      .subscribe(manuals => this.manuals = manuals);
   }
 
   ngOnInit() {
   }
+
   goToCategory(type) {
     this.router.navigate(['category', type]);
-    /*this._manualService.getCategory(type).subscribe(manuals => this.manuals = manuals);*/
   }
 }

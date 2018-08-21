@@ -1,4 +1,4 @@
-<div >
+<div>
   <kendo-scrollview
     [data]="items"
     [width]="width"
@@ -7,15 +7,16 @@
     [pageable]="true">
     <ng-template let-item="item">
       <h2>{{item.title}}</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consectetur dolores et exercitationem fugit illum in ipsa itaque laborum maxime nam nulla quae quaerat quas qui, quibusdam quod repellendus tempora!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consectetur dolores et exercitationem fugit
+        illum in ipsa itaque laborum maxime nam nulla quae quaerat quas qui, quibusdam quod repellendus tempora!</p>
       <img src='{{item.url}}'>
     </ng-template>
   </kendo-scrollview>
 </div>
 
-<h2 style="text-align: center">Categories</h2>
+<h2 style="text-align: center; margin-top: 50px">Categories</h2>
 <div class="col-sm-12 col-md-4 example-col" style="justify-content:center; display: flex; align-items: center;">
-  <kendo-buttongroup style="margin-left: 1000px; margin-bottom: 20px">
+  <kendo-buttongroup style="margin-left: 1000px; margin-bottom: 30px">
     <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('ART')">Art</button>
     <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('SOCIAL_LIFE')">Social life</button>
     <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('TECHIQUE')">Technique</button>
@@ -25,3 +26,8 @@
     <button kendoButton [primary]="true" [look]="'flat'" (click)="goToCategory('HEALTH')">Health</button>
   </kendo-buttongroup>
 </div>
+<h2 style="text-align: center; padding: 40px">Tag cloud</h2>
+
+<h2 style="text-align: center;">Last added</h2>
+
+<app-manual-container [dataSource] = manuals></app-manual-container>

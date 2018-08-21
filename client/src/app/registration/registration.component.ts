@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     then(
       values => {
         alert('Thanks for registration');
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
         }, valuef => alert('User with this name has already existed'));
   }
 

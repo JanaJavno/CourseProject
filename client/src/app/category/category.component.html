@@ -1,16 +1,3 @@
 <h1 style="text-align: center; background-color: darkorange">All about {{type}}</h1>
 
-<div class="container-fluid">
-  <kendo-sortable
-    [navigatable]="true"
-    [animation] = "true"
-    [data]="manuals"
-    class="row"
-    itemClass="item col-xs-7 col-sm-4"
-    activeItemClass="item col-xs-7 col-sm-4 active">
-    <ng-template let-item="item">
-      <h2>{{item.title}}</h2>
-      <img src='{{item.url}}'>
-    </ng-template>
-  </kendo-sortable>
-</div>
+<app-manual-container [dataSource] = manuals class="container"></app-manual-container>

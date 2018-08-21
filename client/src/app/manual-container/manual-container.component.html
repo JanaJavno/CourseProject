@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <kendo-sortable style="cursor: pointer"
+    [data]=dataSource
+    class="row"
+    itemClass="item col-xs-7 col-sm-4">
+    <ng-template let-item="item">
+      <div (click)="manualClick(item.id, item.category)">
+        <h2>{{item.title}}</h2>
+        <img src='{{item.url}}' style="width: 50%">
+      </div>
+    </ng-template>
+  </kendo-sortable>
+</div>
