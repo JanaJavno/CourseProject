@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ManualService} from '../manual.service';
+import {ManualService} from '../services/manual.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +17,8 @@ export class MainComponent implements OnInit {
   ];
   public width = '1500px';
   public height = '400px';
-  constructor(private _manualService: ManualService, private router: Router) {
+  isAuthenticated = this.authService.isAuthenticated();
+  constructor(private _manualService: ManualService, private router: Router, private authService: AuthService) {
     this._manualService.getAll()
       .subscribe(manuals => this.manuals = manuals);
   }
@@ -26,5 +28,9 @@ export class MainComponent implements OnInit {
 
   goToCategory(type) {
     this.router.navigate(['category', type]);
+  }
+
+  addManual() {
+    this.router.navigate(['manualFactory']);
   }
 }

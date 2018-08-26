@@ -13,7 +13,7 @@ export class ManualContainerComponent implements OnInit {
 
   ngOnInit() {
   }
-  manualClick(manualId, category) {
-    this.router.navigate(['manuals', manualId, category]);
+  manualClick(manualId, category, name) {
+    this.router.navigate(['manuals', manualId, category, name]);
   }
 }

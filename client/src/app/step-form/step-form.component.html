@@ -1,0 +1,42 @@
+<strong>Step {{stepId}}</strong>
+<form class="k-form">
+  <label class="k-form-field">
+    <span>Name<span class="k-required">*</span></span>
+    <input class="k-textbox" placeholder="e.g. Cut Off Ends" required/>
+  </label>
+
+  <label class="k-form-field">
+    <span>Instruction<span class="k-required">*</span></span>
+    <input class="k-textarea"
+           placeholder="e.g. Use a sharp chef's knife or a serrated knife to trim off the top, being cautious with the s
+           tiff,pointy leaves. Then cut off the base of the pineapple so that it will stand up straight." required/>
+  </label>
+
+  <p>Step photos (max 3 elements)</p>
+  <div class="step">
+    <div class="center">
+      <file-drop headertext="Drop step photo here" (onFileDrop)="dropped($event)"
+                 (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" [disableIf]="maxLength">
+      </file-drop>
+      <div class="alert alert-danger" *ngIf="maxLength">
+        You already has loaded max 3 photos
+      </div>
+      <div class="upload-table">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+          </thead>
+          <tbody class="upload-name-style">
+          <tr *ngFor="let item of allFiles">
+            <td><strong>{{ item.relativePath }}</strong>
+              <span class="k-icon k-i-close" style="float: right; cursor: pointer" (click)="deleteFile(item)"></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>

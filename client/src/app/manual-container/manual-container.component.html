@@ -4,7 +4,7 @@
     class="row"
     itemClass="item col-xs-7 col-sm-4">
     <ng-template let-item="item">
-      <div (click)="manualClick(item.id, item.category)">
+      <div (click)="manualClick(item.id, item.category, item.title)">
         <h2>{{item.title}}</h2>
         <img src='{{item.url}}' style="width: 50%">
       </div>

@@ -1,0 +1,66 @@
+<div class="row bla example-wrapper">
+  <div class="col-xs-12 col-sm-6 offset-sm-3 example-col">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form" [formGroup]="manualFormControl" (ngSubmit)="validateManual(manualFormControl.value)">
+          <fieldset>
+            <legend>General manual information</legend>
+
+            <label class="k-form-field">
+              <span>Name<span class="k-required">*</span></span>
+              <input formControlName="manual_name" class="k-textbox" placeholder="e.g. How to slice a pineapple"
+                     required/>
+            </label>
+
+            <label class="k-form-field">
+              <span>Short description</span>
+              <input formControlName="manual_description" class="k-textarea"
+                     placeholder="e.g. Knowledge of how to slice pineapple is very important nowadays. So figure out, how to do it right"/>
+            </label>
+
+            <label class="k-form-field">
+              <span>Category<span class="k-required">*</span></span>
+              <select formControlName="manual_category" required>
+                <option *ngFor="let pf of listItems">{{ pf}}</option>
+              </select>
+            </label>
+
+            <p>Main photo (the last loaded)</p>
+            <div class="center">
+              <file-drop headertext="Drop main photo here" (onFileDrop)="mainDropped($event)"
+                         (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+              </file-drop>
+              <div class="upload-table">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                  </tr>
+                  </thead>
+                  <tbody class="upload-name-style">
+                  <tr *ngFor="let item of mainFile; let i=index">
+                    <td><strong>{{ item.relativePath }}</strong></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldSet">
+            <legend>Steps information</legend>
+            <div *ngFor="let step of steps; let i = index">
+              <app-step-form [stepId]="step.id.toString()"></app-step-form>
+            </div>
+            <button kendoButton id="addStep" [look]="'outline'" (click)="addStep()"
+                    style="margin-left: 250px; width: 200px">Add step
+            </button>
+          </fieldset>
+
+          <input type="submit" class="k-button k-primary" value="Submit">
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

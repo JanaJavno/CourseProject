@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ManualService} from '../manual.service';
+import {ManualService} from '../services/manual.service';
 
 @Component({
   selector: 'app-category',

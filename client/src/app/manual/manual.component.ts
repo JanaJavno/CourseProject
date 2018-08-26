@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ManualService} from '../manual.service';
+import {ManualService} from '../services/manual.service';
 
 @Component({
   selector: 'app-manual',
@@ -12,8 +12,9 @@ export class ManualComponent implements OnInit {
   public category;
   public steps;
   public manual;
+  public name;
   constructor(private activatedRoute: ActivatedRoute, private manualService: ManualService, private router: Router) {
-    this.activatedRoute.params.subscribe(p => {this.manualId = p.manualId; this.category = p.category; });
+    this.activatedRoute.params.subscribe(p => {this.manualId = p.manualId; this.category = p.category; this.name = p.name; });
   }
 
   ngOnInit() {

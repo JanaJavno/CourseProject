@@ -1,16 +1,21 @@
-<div class="containers" >
+<div>
+  <div>
+    <h1 class="manualName">{{name}}</h1>
+  </div>
+</div>
+<div class="containers">
   <div class="sideBar" style="margin: 10px;">
     <h5>Category</h5>
     <button kendoButton [look]="'flat'" (click)="goToCategory(category)">{{category}}</button>
     <h5>Navigation</h5>
     <kendo-sortable style="cursor: pointer"
-      [navigatable]="true"
-      [animation]="true"
-      [data]="steps"
-      class="column"
-      itemClass="item"
-      activeItemClass="item  active">
-      <ng-template let-item="item" >
+                    [navigatable]="true"
+                    [animation]="true"
+                    [data]="steps"
+                    class="column"
+                    itemClass="item"
+                    activeItemClass="item  active">
+      <ng-template let-item="item">
         <a pageScroll href="#{{item.id}}">{{item.name}}</a>
       </ng-template>
     </kendo-sortable>
@@ -24,11 +29,11 @@
       activeItemClass="item active">
       <ng-template let-item="item">
         <div class="step">
-          <h2 id = {{item.id}} style="text-align: center; font-weight: bold;">{{item.name}}</h2>
+          <h2 id={{item.id}} style="text-align: center; font-weight: bold;">{{item.name}}</h2>
           <div>
             <img src='{{item.picturePath}}' style="width: 65%; display: block; margin-left: auto; margin-right: auto;">
           </div>
-          <p style="text-align: center; font-size: 20px" >{{item.instruction}}</p>
+          <p style="text-align: center; font-size: 20px">{{item.instruction}}</p>
         </div>
       </ng-template>
     </kendo-sortable>

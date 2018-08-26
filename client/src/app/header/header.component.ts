@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../auth.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +7,23 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public splitButtonData: Array<any> = [
-    {
-      text: 'Option 1'
-    },
-    {
-      text: 'Option 2',
-    },
-    {
-      text: 'Option 3',
-    }
-  ];
+  public popupClass = 'custom-class';
+  icon = 'user';
+  data: Array<any> = [{
+    text: 'My Profile'
+  }, {
+    text: 'Account Settings'
+  }, {
+    text: 'Support'
+  }, {
+    text: 'Log Out'
+  }];
+  dropDownEvents = {
+    'My Profile': () => { this.toProfile(); },
+    'Account Settings': () => { this.toAccountSettings(); },
+    'Support': () => { this.toSupport(); },
+    'Log Out': () => { this.toLogOut(); },
+  };
   public state = false;
   isAuthenticated = this.authService.isAuthenticated();
 
@@ -27,12 +33,28 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogInClick() {
+  toProfile() {
+    alert('My Profile');
+  }
+
+  toAccountSettings() {
+    alert('Account Settings');
+  }
+
+  toSupport() {
+    alert('Support');
+  }
+
+  toLogIn() {
     this.state = true;
   }
 
-  onLogOutClick() {
+  toLogOut() {
     this.authService.logout();
     location.reload();
+  }
+
+  dropDownClick(event) {
+    this.dropDownEvents[event.text]();
   }
 }

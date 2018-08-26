@@ -31,3 +31,9 @@
 <h2 style="text-align: center;">Last added</h2>
 
 <app-manual-container [dataSource] = manuals></app-manual-container>
+
+<div class="fab" (click)="addManual()" *ngIf="isAuthenticated">
+  <span class="fab-action-button" id="fab">
+      <i class="fab-action-button__icon"></i>
+    </span>
+</div>
