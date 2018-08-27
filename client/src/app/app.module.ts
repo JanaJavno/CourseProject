@@ -24,6 +24,7 @@ import { UploadModule } from '@progress/kendo-angular-upload';
 import { EventLogComponent } from './event-log/event-log.component';
 import {FileDropModule} from 'ngx-file-drop';
 import { StepFormComponent } from './step-form/step-form.component';
+import { StepArrayFormComponent } from './step-array-form/step-array-form.component';
 
 
 const routes = [
@@ -49,7 +50,8 @@ const routes = [
     ManualContainerComponent,
     ManualFactoryComponent,
     EventLogComponent,
-    StepFormComponent
+    StepFormComponent,
+    StepArrayFormComponent
   ],
   imports: [
     BrowserModule,

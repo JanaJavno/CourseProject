@@ -29,7 +29,8 @@ export class ManualService {
     return this.http.get('/api/manuals/allCategories');
   }
 
-  public dragImage(file) {
-
+  public addManual(manual) {
+    const headers = new HttpHeaders({'Content-Type': 'application/json; charset = utf-8'});
+    return this.http.post<any>('/api/manuals/', JSON.stringify(manual), { headers: headers }).toPromise();
   }
 }

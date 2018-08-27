@@ -1,18 +1,31 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FileSystemDirectoryEntry, FileSystemFileEntry, UploadEvent, UploadFile} from 'ngx-file-drop';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {FileSystemDirectoryEntry, UploadEvent, UploadFile} from 'ngx-file-drop';
+import {ControlValueAccessor, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-step-form',
   templateUrl: './step-form.component.html',
-  styleUrls: ['./step-form.component.css']
+  styleUrls: ['./step-form.component.css'],
 })
 export class StepFormComponent implements OnInit {
   @Input()
   public stepId;
+  @Input()
+  public step: FormGroup;
+  @Output()
+  public removed: EventEmitter<number> = new EventEmitter<number>();
   public allFiles: UploadFile[] = [];
   public files: UploadFile[] = [];
   public maxLength = false;
+
   constructor() { }
+
+  static buildStep(val: string) {
+    return new FormGroup({
+      step_name: new FormControl(val, Validators.required),
+      step_instruction: new FormControl('', Validators.required)
+    });
+  }
 
   ngOnInit() {
   }

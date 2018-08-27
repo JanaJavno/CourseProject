@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-6 offset-sm-3 example-col">
     <div class="card">
       <div class="card-block">
-        <form class="k-form" [formGroup]="manualFormControl" (ngSubmit)="validateManual(manualFormControl.value)">
+        <form class="k-form" [formGroup]="manualFormControl" (ngSubmit)="createManual(manualFormControl.value)">
           <fieldset>
             <legend>General manual information</legend>
 
@@ -47,15 +47,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="fieldSet">
-            <legend>Steps information</legend>
-            <div *ngFor="let step of steps; let i = index">
-              <app-step-form [stepId]="step.id.toString()"></app-step-form>
-            </div>
-            <button kendoButton id="addStep" [look]="'outline'" (click)="addStep()"
-                    style="margin-left: 250px; width: 200px">Add step
-            </button>
-          </fieldset>
+          <app-step-array-form formArrayName="steps" [stepsFormArray]="formSteps"></app-step-array-form>
 
           <input type="submit" class="k-button k-primary" value="Submit">
 

@@ -1,0 +1,11 @@
+<fieldset class="fieldSet">
+  <legend>Steps information</legend>
+  <app-step-form
+    *ngFor="let step of stepsFormArray.controls ; let i = index"
+    [stepId]=i
+    [step]="step"
+    (removed)="stepsFormArray.removeAt($event)">
+  </app-step-form>
+  <button kendoButton id="addStep" [look]="'outline'" (click)="addStep()"
+          style="margin-left: 250px; width: 200px">Add step</button>
+</fieldset>

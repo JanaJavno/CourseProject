@@ -1,19 +1,19 @@
-<strong>Step {{stepId}}</strong>
-<form class="k-form">
+<div [formGroup]="step">
+  <strong>Step {{stepId}}</strong>
+  <span class="k-icon k-i-close" style="float: right; cursor: pointer" (click)="removed.emit(stepId)"></span>
   <label class="k-form-field">
     <span>Name<span class="k-required">*</span></span>
-    <input class="k-textbox" placeholder="e.g. Cut Off Ends" required/>
+    <input class="k-textbox" formControlName="step_name" placeholder="e.g. Cut Off Ends" required/>
   </label>
 
   <label class="k-form-field">
     <span>Instruction<span class="k-required">*</span></span>
-    <input class="k-textarea"
+    <input class="k-textarea" formControlName="step_instruction"
            placeholder="e.g. Use a sharp chef's knife or a serrated knife to trim off the top, being cautious with the s
            tiff,pointy leaves. Then cut off the base of the pineapple so that it will stand up straight." required/>
   </label>
 
   <p>Step photos (max 3 elements)</p>
-  <div class="step">
     <div class="center">
       <file-drop headertext="Drop step photo here" (onFileDrop)="dropped($event)"
                  (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" [disableIf]="maxLength">
@@ -39,4 +39,3 @@
       </div>
     </div>
   </div>
-</form>
